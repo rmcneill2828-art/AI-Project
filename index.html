@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Children and privacy - JARVIS</title>
+<style>
+:root { --bg: #fbfaf7; --fg: #1f2328; --muted: #57606a; --line: #d8dee4; --accent: #0b5cad; --panel: #f1efe9; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16181c; --fg: #e6e8eb; --muted: #a0a8b2; --line: #343a42; --accent: #7cb7ff; --panel: #1f2329; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 16px 4rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; }
+h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; }
+h3 { font-size: 1.1rem; margin: 2rem 0 .5rem; }
+a { color: var(--accent); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+code { font-size: .9em; background: var(--panel); padding: .1em .3em; border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; margin: 1rem 0; }
+th, td { border: 1px solid var(--line); padding: .5rem .65rem; text-align: left; vertical-align: top; }
+th { background: var(--panel); }
+h2:first-of-type + ul { background: var(--panel); border-radius: 8px; padding: 1rem 1rem 1rem 2.2rem; font-size: 1.05rem; }
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Children and privacy</h1>
+<p><strong>JARVIS Guardian Shell 0.2.1. Version 1.0 of this page, 9 November 2026.</strong></p>
+<p>JARVIS is an AI assistant that a household installs and runs on its own computer. This page says what it keeps about a child, where, for how long, what can leave the computer, and what a parent can do about it.</p>
+<hr />
+<h2>The short version (for you, if you are the child)</h2>
+<ul>
+<li>JARVIS is an AI, not a person. It can make mistakes.</li>
+<li>It runs on your family's computer. What you say to it stays there, unless you ask Claude (below).</li>
+<li>It forgets your conversation when it is closed.</li>
+<li>A safety check looks at what you say and what JARVIS answers. It can get things wrong. If it stops something, a grown-up can see that it happened, on which day, and what kind of thing it was. <strong>They cannot see your words.</strong></li>
+<li>JARVIS can only ask Claude, an AI on the internet, if a grown-up has said yes and you have said you understand. Then your question and your last few messages go to a company called Anthropic.</li>
+<li>If anything worries you, tell a grown-up.</li>
+</ul>
+<hr />
+<h2>For parents and carers</h2>
+<h3>Who is responsible</h3>
+<p>The <strong>household</strong> that installs JARVIS runs it, on its own computer, and is responsible for it. <strong>The developer of JARVIS receives nothing</strong>: there are no accounts, no analytics, no crash reports and no update check, and nothing is sent to the developer.</p>
+<h3>What is kept, and where</h3>
+<p>Everything is kept on the household's computer, in a folder called <code>.jarvis</code> in the computer user's home folder. For a Child profile:</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>How long</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The <strong>profile</strong>: the name typed in and the role &quot;Child&quot;. No age, birthday, photo, email or password.</td>
+<td>Until the profile is erased</td>
+</tr>
+<tr>
+<td><strong>Safety events</strong>: when the safety checker stopped something, a <strong>category</strong> (for example &quot;Weapons that can harm many people&quot;), whether it was the child's message or the answer, and the time. <strong>Never the words.</strong></td>
+<td>30, 90 (the default) or 365 days, as the household's Administrator chooses</td>
+</tr>
+<tr>
+<td><strong>Claude consent</strong>: who allowed the child to use Claude, when, when the child said they understood, and when it was turned off</td>
+<td>Until the profile is erased</td>
+</tr>
+<tr>
+<td>When the child confirmed the &quot;you are talking to an AI&quot; explanation</td>
+<td>Until the profile is erased</td>
+</tr>
+<tr>
+<td><strong>The activity log</strong>: what happened (for example, a question sent to Claude), the role &quot;Child&quot; and counts. <strong>Not what was said, and not the name.</strong></td>
+<td>30, 90 or 365 days</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conversations are not saved.</strong> They are held while JARVIS is open, the last six exchanges for each profile, and are gone when it closes. This was checked: after a conversation and a restart, no file written by JARVIS or by Ollama held its words.</p>
+<p><strong>Notes:</strong> this version of JARVIS cannot save new notes from the app. When it can, a child's note will be saved only after an adult in the household approves it, and a child never sees notes shared by the household.</p>
+<p>The full list, including technical files, is in the <a rel="noopener" href="https://github.com/rmcneill2828-art/project-jarvis-ai/blob/main/docs/user/DATA_MAP.md">data map</a>.</p>
+<h3>What leaves the computer</h3>
+<p><strong>Ordinarily, nothing.</strong> JARVIS answers with an AI model on the computer itself, and the safety checker runs there too. This was checked on a real run: the only connections were to that model on the same computer.</p>
+<p><strong>Claude, only if a parent turns it on.</strong> Claude is an AI service run by <strong>Anthropic</strong>, a company in the United States, so what is sent leaves the UK. For a child it is <strong>off unless an Administrator turns it on</strong> for that child, and then only after the child has seen an explanation and chosen &quot;I understand&quot;. The child confirms each question before it goes.</p>
+<p>When the child asks Claude, Anthropic receives: the question; JARVIS's instructions to the model; and the child's last six exchanges with JARVIS, which might include their name, or something JARVIS said using their notes. <strong>A child's notes themselves are never sent.</strong> The safety checker checks the question before it goes and the answer before it is shown.</p>
+<p>What Anthropic does with it, as its own pages said on 9 November 2026:</p>
+<ul>
+<li>It deletes what it receives through the API <strong>within 30 days</strong>, except that it keeps it up to <strong>2 years</strong> if its automated systems flag it as breaking its usage policy, or longer where the law requires (<a rel="noopener" href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">How long do you store my organization's data?</a>).</li>
+<li>Its commercial terms say: &quot;Anthropic may not train models on Customer Content from Services&quot; (<a rel="noopener" href="https://www.anthropic.com/legal/commercial-terms">Commercial Terms</a>).</li>
+</ul>
+<p><strong>Downloads.</strong> When an adult downloads an AI model or the voice, the computer fetches files from Ollama's library, GitHub or Hugging Face. Nothing about the child is sent; as with any download, those sites see the computer's internet address.</p>
+<h3>Consent, and withdrawing it</h3>
+<p>An Administrator turns Claude on or off for each child under Settings, Children and safety. <strong>Turning it off stops it at once.</strong> The record that it was allowed, and when it was turned off, is kept until the child's profile is erased. Anything already sent to Anthropic stays with Anthropic under its terms, above.</p>
+<h3>What a parent can see, and cannot</h3>
+<p><strong>Can see</strong> (the household's Administrator only): each day the safety checker stopped something for the child, what kind of thing, and whether it was the child's message or JARVIS's answer.</p>
+<p><strong>Cannot see</strong>: what the child said, or what JARVIS answered. It is not saved.</p>
+<h3>The safety checker's limits</h3>
+<p>The safety checker is <strong>Llama Guard 3</strong>, a small AI model made by Meta, running on the computer. It checks every message a child sends before JARVIS sees it, and every answer before the child sees it. If it is not working, JARVIS does not answer.</p>
+<p>It <strong>reduces risk; it does not remove it.</strong> It was tested with two sets of 40 sentences (each 20 harmful, 20 harmless), written by the developer. On the first it stopped all 20 harmful ones; on the second it stopped 18 of 20, letting through a request for a sexual story and a question about poison. On each it wrongly stopped 1 harmless one. These are small tests: they do not show that it catches everything. It judges kinds of harm, not whether something suits a child's age; JARVIS is also told it is talking with a child and to answer simply and kindly, but an AI does not always follow instructions. <strong>JARVIS is not a substitute for a parent.</strong></p>
+<h3>Getting a copy, and erasing</h3>
+<ul>
+<li><strong>A copy:</strong> the household's Administrator can export a child's profile, as a readable file and a portable file, from Settings, Your data.</li>
+<li><strong>Erasing:</strong> the Administrator can erase the child's profile from the same place. This removes the profile, its notes, its safety events and its consent records, and overwrites them in JARVIS's database files (the <a rel="noopener" href="https://github.com/rmcneill2828-art/project-jarvis-ai/blob/main/docs/user/DATA_MAP.md">data map</a> gives the detail, under &quot;What erasing a profile removes&quot;).</li>
+</ul>
+<p><strong>Erasing does not remove:</strong> exports or backups saved earlier (separate files: delete them by hand); copies made by the computer's own backup (such as File History, OneDrive, Time Machine or iCloud); activity log lines, which name the role, not the child, and are deleted on schedule; and anything already sent to Anthropic.</p>
+<h3>Your rights, and complaints</h3>
+<p>People in the UK have rights over their personal data, including to get a copy and to have it deleted (<a rel="noopener" href="https://ico.org.uk/for-the-public/your-right-to-get-your-data-deleted/">the ICO on deletion</a>). With JARVIS, the household holds the data on its own computer, so those requests are made to the household, which can act on them with the steps above.</p>
+<p>The Information Commissioner's Office (ICO) is the UK's regulator for personal data. You can <a rel="noopener" href="https://ico.org.uk/make-a-complaint/">complain to the ICO</a>.</p>
+<h3>Contact</h3>
+<p>Questions about this page or about JARVIS go to the JARVIS developer through <a rel="noopener" href="https://github.com/rmcneill2828-art/AI-Project/issues">this page's Issues</a>. You need a free GitHub account, and <strong>everything posted there is public: never post a child's name or anyone's personal details.</strong></p>
+
+<footer>Built from <code>docs/user/CHILDREN_AND_PRIVACY.md</code> at commit <code>db0f9ef</code> of the JARVIS repository.</footer>
+</main>
+</body>
+</html>
